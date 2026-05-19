@@ -1,0 +1,143 @@
+<div class="chat-container" [ngClass]="{dark: themeService.darkMode}">
+
+    <div class="top-bar">
+
+        <div class="title-section">
+
+            <h1>AI Interview Assistant</h1>
+
+            <p>
+                Practice with AI-powered interviews 🚀
+            </p>
+
+        </div>
+
+        <div class="top-actions">
+
+            <button class="mode-btn" (click)="themeService.toggleTheme()">
+
+                {{ themeService.darkMode? '☀️ Light': '🌙 Dark' }}
+
+            </button>
+
+            <button class="logout-btn" (click)="logout()">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="category-section">
+
+        <select [(ngModel)]="selectedCategory">
+
+            <option value="Angular">
+                Angular
+            </option>
+
+            <option value="C#">
+                C#
+            </option>
+
+            <option value="JavaScript">
+                JavaScript
+            </option>
+
+            <option value="HR">
+                HR Questions
+            </option>
+
+        </select>
+
+    </div>
+
+    <div class="chat-box" #chatBox>
+
+        <div *ngIf="messages.length === 0" class="empty-state">
+
+            <h2>
+                Welcome 👋
+            </h2>
+
+            <p>
+                Ask your first interview question
+            </p>
+
+        </div>
+
+        <div *ngFor="let message of messages" [ngClass]="message.sender">
+
+            <div class="message-header">
+
+                <strong>
+
+                    {{ message.sender === 'user' ? 'You' : 'AI Assistant' }}
+
+                </strong>
+
+                <span class="message-time">
+
+                    {{ message.time }}
+
+                </span>
+
+            </div>
+
+            <div class="message-content" [innerHTML]="formatMessage(message.text)">
+
+            </div>
+
+            <button *ngIf="message.sender === 'ai'" class="copy-btn" (click)="copyMessage(message.text)">
+
+                Copy Response
+
+            </button>
+
+        </div>
+
+        <div *ngIf="loading" class="loading">
+
+            <div class="spinner"></div>
+
+            <span>
+                AI is typing...
+            </span>
+
+        </div>
+
+        <div *ngIf="errorMessage" class="error">
+
+            {{ errorMessage }}
+
+        </div>
+
+    </div>
+
+    <div class="input-area">
+
+        <textarea #messageInput [(ngModel)]="userMessage" placeholder="Ask interview questions..." rows="1"
+            (input)="autoResize(messageInput)" (keydown.enter)="handleEnter($event)">
+    </textarea>
+
+        <div class="button-group">
+
+            <button class="send-btn" (click)="sendMessage()" [disabled]="loading">
+
+                {{ loading ? 'Sending...' : 'Send Message' }}
+
+            </button>
+
+            <button class="clear-btn" (click)="clearChat()">
+
+                Clear Chat
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

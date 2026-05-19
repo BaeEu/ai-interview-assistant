@@ -1,0 +1,37 @@
+<div class="login-page" [ngClass]="{dark: themeService.darkMode}">
+
+    <div class="login-card">
+        <div class="theme-toggle">
+
+            <button (click)="themeService.toggleTheme()">
+
+                {{ themeService.darkMode? '☀️ Light' : '🌙 Dark' }}
+
+            </button>
+
+        </div>
+        <h1>AI Interview Assistant</h1>
+
+        <p class="subtitle">
+            Practice interviews with AI
+        </p>
+
+        <input type="text" placeholder="Username" [(ngModel)]="username">
+
+        <input type="password" placeholder="Password" [(ngModel)]="password">
+
+        <button (click)="login()">
+
+            Login
+
+        </button>
+
+        <div *ngIf="error" class="error">
+
+            {{ error }}
+
+        </div>
+
+    </div>
+
+</div>
