@@ -7,9 +7,10 @@ import { Observable } from 'rxjs';
 })
 export class AiService {
 
-  private apiUrl = 'http://localhost:5000/api/ai/chat';
+  // private apiUrl = 'http://localhost:5000/api/ai/chat';
 
-  constructor(private http: HttpClient) {}
+  private apiUrl = 'https://ai-interview-assistant-mxh2.onrender.com/api/ai/chat';
+  constructor(private http: HttpClient) { }
 
   sendMessage(message: string): Observable<any> {
     return this.http.post(this.apiUrl, {
