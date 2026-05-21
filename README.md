@@ -56,7 +56,7 @@ https://ai-interview-assistant-mxh2.onrender.com
 
 ## Clone repository:
 
-- git clone https://github.com/yourname/ai-interview-assistant.git
+- git clone https://github.com/BaeEu/ai-interview-assistant.git
 
 ## Frontend:
 
