@@ -1,70 +1,26 @@
 <div class="chat-container" [ngClass]="{dark: themeService.darkMode}">
 
-    <div class="top-bar">
-
-        <div class="title-section">
-
-            <h1>AI Interview Assistant</h1>
-
-            <p>
-                Practice with AI-powered interviews 🚀
-            </p>
-
-        </div>
-
-        <div class="top-actions">
-
-            <button class="mode-btn" (click)="themeService.toggleTheme()">
-
-                {{ themeService.darkMode? '☀️ Light': '🌙 Dark' }}
-
-            </button>
-
-            <button class="logout-btn" (click)="logout()">
-
-                Logout
-
-            </button>
-
-        </div>
-
-    </div>
-
+    <!-- Category -->
     <div class="category-section">
 
         <select [(ngModel)]="selectedCategory">
 
-            <option value="Angular">
-                Angular
-            </option>
-
-            <option value="C#">
-                C#
-            </option>
-
-            <option value="JavaScript">
-                JavaScript
-            </option>
-
-            <option value="HR">
-                HR Questions
+            <option *ngFor="let category of categories" [value]="category.name">
+                {{ category.name }}
             </option>
 
         </select>
 
     </div>
 
+    <!-- Chat Messages -->
     <div class="chat-box" #chatBox>
 
         <div *ngIf="messages.length === 0" class="empty-state">
 
-            <h2>
-                Welcome 👋
-            </h2>
+            <h2>Welcome 👋</h2>
 
-            <p>
-                Ask your first interview question
-            </p>
+            <p>Ask your first interview question</p>
 
         </div>
 
@@ -73,68 +29,63 @@
             <div class="message-header">
 
                 <strong>
-
-                    {{ message.sender === 'user' ? 'You' : 'AI Assistant' }}
-
+                    {{ message.sender === 'user'
+                    ? 'You'
+                    : 'AI Assistant' }}
                 </strong>
 
                 <span class="message-time">
-
                     {{ message.time }}
-
                 </span>
 
             </div>
 
             <div class="message-content" [innerHTML]="formatMessage(message.text)">
-
             </div>
 
             <button *ngIf="message.sender === 'ai'" class="copy-btn" (click)="copyMessage(message.text)">
 
-                Copy Response
+                Copy
 
             </button>
 
         </div>
 
+        <!-- Loading -->
         <div *ngIf="loading" class="loading">
 
             <div class="spinner"></div>
 
-            <span>
-                AI is typing...
-            </span>
-
-        </div>
-
-        <div *ngIf="errorMessage" class="error">
-
-            {{ errorMessage }}
+            <span>AI is typing...</span>
 
         </div>
 
     </div>
 
-    <div class="input-area">
+    <!-- Bottom Input -->
+    <div class="input-wrapper">
 
-        <textarea #messageInput [(ngModel)]="userMessage" placeholder="Ask interview questions..." rows="1"
-            (input)="autoResize(messageInput)" (keydown.enter)="handleEnter($event)">
-    </textarea>
+        <div class="input-area">
 
-        <div class="button-group">
+            <textarea #messageInput [(ngModel)]="userMessage" placeholder="Ask interview questions..." rows="1"
+                (input)="autoResize(messageInput)" (keydown.enter)="handleEnter($event)">
+            </textarea>
 
-            <button class="send-btn" (click)="sendMessage()" [disabled]="loading">
+            <div class="button-group">
 
-                {{ loading ? 'Sending...' : 'Send Message' }}
+                <button class="send-btn" (click)="sendMessage()" [disabled]="loading">
 
-            </button>
+                    {{ loading ? 'Sending...' : 'Send' }}
 
-            <button class="clear-btn" (click)="clearChat()">
+                </button>
 
-                Clear Chat
+                <button class="clear-btn" (click)="clearChat()">
 
-            </button>
+                    Clear
+
+                </button>
+
+            </div>
 
         </div>
 

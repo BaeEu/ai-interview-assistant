@@ -5,7 +5,7 @@ dotenv.config();
 
 const client = new OpenAI({
     apiKey: process.env.OPENROUTER_API_KEY,
-  baseURL: "https://openrouter.ai/api/v1",
+    baseURL: "https://openrouter.ai/api/v1",
 });
 
 export const askAI = async (message: string) => {

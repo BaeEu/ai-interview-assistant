@@ -1,81 +1,204 @@
 # AI Interview Assistant
 
-An AI-powered interview preparation web application built with Angular and Node.js.  
-Users can practice interview questions, chat with AI, switch between light/dark mode, and prepare for technical interviews interactively.
+An AI-powered interview preparation platform built with Angular, Node.js, Express, and PostgreSQL.
 
----
-
-# Live Demo
-
-## Frontend (Netlify)
-https://ai-interview-assistant-app.netlify.app
-
-## Backend API (Render)
-https://ai-interview-assistant-mxh2.onrender.com
+Users can practice technical interview questions, manage multiple chat sessions, review previous conversations, and receive AI-generated responses through an intuitive ChatGPT-style interface.
 
 ---
 
 # Features
 
-- AI Interview Chat Assistant
-- Angular Frontend
-- Node.js + Express Backend
-- Dark Mode / Light Mode
-- Responsive Mobile Design
-- Login Page UI
-- Interview Categories
-- Chat Message Copy Feature
-- Loading Animation
-- Error Handling
-- Auto Scroll Chat
-- Auto Resize Textarea
+## Authentication
+
+* User Registration
+* User Login
+* JWT Authentication
+* Protected Routes
+* Logout Functionality
+
+## AI Interview Assistant
+
+* AI-Powered Interview Questions
+* Multiple Interview Categories
+* Real-time Chat Experience
+* Copy AI Responses
+* Loading Indicator
+* Auto Scroll Messages
+* Auto Resize Textarea
+
+## Session Management
+
+* Create New Chat Sessions
+* Load Previous Sessions
+* View Chat History
+* Rename Sessions
+* Delete Sessions
+* Session-based Message Storage
+
+## User Experience
+
+* ChatGPT-style Sidebar
+* Responsive Design
+* Dark Mode / Light Mode
+* Theme Persistence
+* Mobile Friendly UI
 
 ---
 
 # Technologies Used
 
 ## Frontend
-- Angular
-- TypeScript
-- HTML5
-- CSS
+
+* Angular 20
+* TypeScript
+* HTML5
+* CSS3
+* RxJS
 
 ## Backend
-- Node.js
-- Express.js
 
-## AI API
-- OpenRouter API
+* Node.js
+* Express.js
+* TypeScript
 
-## Deployment
-- Netlify (Frontend)
-- Render (Backend)
+## Database
 
----
-## Installation
+* PostgreSQL
 
-## Clone repository:
+## Authentication
 
-- git clone https://github.com/BaeEu/ai-interview-assistant.git
+* JWT (JSON Web Token)
+* bcryptjs
 
-## Frontend:
+## AI Integration
 
-- cd client
-- npm install
-- ng serve
+* OpenRouter API
 
-## Backend:
+## DeploymentLive Demo
 
-- cd server
-- npm install
-- npm run dev
+
+* Netlify (Frontend) 
+-https://ai-interview-assistant-app.netlify.app
+* Render (Backend)
+-https://ai-interview-assistant-mxh2.onrender.com
 
 ---
 
-## AI API
-- OpenRouter API
+# Project Structure
 
-- OPENROUTER_API_KEY=your_api_key_here
+```bash
+ai-interview-assistant/
+│
+├── client/
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── components/
+│   │   │   ├── services/
+│   │   │   ├── guards/
+│   │   │   ├── interceptors/
+│   │   │   └── models/
+│   │
+│   └── package.json
+│
+├── server/
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── routes/
+│   │   ├── config/
+│   │   ├── middleware/
+│   │   └── services/
+│   │
+│   └── package.json
+│
+├── screenshots/
+│
+└── README.md
+```
+
+---
+
+# Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/BaeEu/ai-interview-assistant.git
+```
+
+---
+
+## Frontend Setup
+
+```bash
+cd client
+
+npm install
+
+ng serve
+```
+
+Application runs on:
+
+```bash
+http://localhost:4200
+```
+
+---
+
+## Backend Setup
+
+```bash
+cd server
+
+npm install
+
+npm run dev
+```
+
+API runs on:
+
+```bash
+http://localhost:5000
+```
+
+---
+
+# Environment Variables
+
+Create a `.env` file inside the server folder:
+
+```env
+OPENROUTER_API_KEY=your_openrouter_api_key
+
+JWT_SECRET=your_jwt_secret
+
+DATABASE_URL=your_postgresql_connection_string
+```
+
+---
+
+# API Features
+
+## Authentication
+
+* Register User
+* Login User
+* JWT Token Generation
+* JWT Middleware Protection
+
+## Sessions
+
+* Create Session
+* Get User Sessions
+* Update Session
+* Delete Session
+
+## Messages
+
+* Save Message
+* Load Messages by Session
+* Clear Session Messages
+
 ---
 
 # Screenshots
@@ -84,14 +207,23 @@ https://ai-interview-assistant-mxh2.onrender.com
 
 ![Login Page](screenshots/login-page.png)
 
-- username = 'admin'
-- password = '1234'
+---
+
+## Registration Page
+
+![Register Page](screenshots/register-page.png)
 
 ---
 
 ## Chat Interface
 
-![Chat Interface](screenshots/chat-page.png , screenshots/chat-page-2.png)
+![Chat Interface](screenshots/chat-page.png)
+
+---
+
+## Session History
+
+![History](screenshots/history-page.png)
 
 ---
 
@@ -107,32 +239,26 @@ https://ai-interview-assistant-mxh2.onrender.com
 
 ---
 
-# Folder Structure
+# Future Enhancements
 
-- bash
-ai-interview-assistant/
-│
-├── client/
-│   ├── src/
-│   ├── angular.json
-│   └── package.json
-│
-├── server/
-│   ├── src/
-│   ├── .env
-│   └── package.json
-│
-├── screenshots/
-│   ├── login-page.png
-│   ├── chat-page.png
-│   ├── dark-mode.png
-│   └── mobile-view.png
-│
-├── README.md
-└── .gitattributes
+* Export Chat to PDF
+* Search Chat History
+* Voice Interview Mode
+* AI Interview Scoring
+* User Profile Management
+* Interview Analytics Dashboard
 
 ---
 
-## Author
+# Author
 
-- Sabal Oo
+**Sabal Oo**
+
+Software Developer
+
+* Angular
+* TypeScript
+* C#
+* ASP.NET
+* Node.js
+* PostgreSQL

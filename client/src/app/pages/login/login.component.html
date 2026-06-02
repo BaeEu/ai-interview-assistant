@@ -18,13 +18,33 @@
 
         <input type="text" placeholder="Username" [(ngModel)]="username">
 
-        <input type="password" placeholder="Password" [(ngModel)]="password">
+        <!-- <input type="password" placeholder="Password" [(ngModel)]="password" (keydown.enter)="login()"> -->
+        <div class="password-container">
+
+            <input [type]="showPassword ? 'text' : 'password'" name="password" [(ngModel)]="password"
+                (keydown.enter)="login()" placeholder="Password">
+
+            <span class="eye-icon" (click)="showPassword = !showPassword">
+                {{ showPassword ? '🙈' : '👁️' }}
+            </span>
+
+        </div>
 
         <button (click)="login()">
-
             Login
-
         </button>
+
+        <div class="register-link">
+
+            Don't have an account?
+
+            <span routerLink="/register">
+
+                Register
+
+            </span>
+
+        </div>
 
         <div *ngIf="error" class="error">
 

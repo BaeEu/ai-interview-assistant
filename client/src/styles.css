@@ -7,4 +7,23 @@ body.dark-mode {
     transition: 0.3s;
 }
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Remove scrollbar */
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
 /* You can add global styles to this file, and also import other style files */

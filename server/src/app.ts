@@ -1,6 +1,11 @@
 import express from "express";
 import cors from "cors";
 import aiRoutes from "./routes/ai.routes";
+import pool from "./config/db";
+import authRoutes from "./routes/authRoutes";
+import sessionRoutes from './routes/session.routes';
+import messageRoutes from './routes/message.routes';
+import categoryRoutes from './routes/category.routes';
 
 const app = express();
 
@@ -15,7 +20,33 @@ app.get("/test", (req, res) => {
   res.send("Server working");
 });
 
+app.get("/db-test", async (req, res) => {
+
+  try {
+
+    const result = await pool.query("SELECT NOW()");
+
+    res.json({
+      success: true,
+      data: result.rows
+    });
+
+  } catch (error) {
+
+    console.log(error);
+
+    res.status(500).json({
+      success: false
+    });
+
+  }
+
+});
 app.use("/api/ai", aiRoutes);
+app.use("/api/auth", authRoutes);
+app.use('/api/session', sessionRoutes);
+app.use('/api/message', messageRoutes);
+app.use('/api/category', categoryRoutes);
 
 const PORT = 5000;
 

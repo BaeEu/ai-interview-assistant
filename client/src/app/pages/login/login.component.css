@@ -119,6 +119,44 @@ body {
     text-align: center;
 }
 
+.password-container {
+
+    position: relative;
+
+    width: 100%;
+}
+
+.password-container input {
+
+    width: 100%;
+
+    padding-right: 45px;
+}
+
+.eye-icon {
+
+    position: absolute;
+
+    top: 50%;
+
+    right: 15px;
+
+    transform: translateY(-50%);
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    user-select: none;
+
+    color: #6b7280;
+}
+
+.eye-icon:hover {
+
+    color: #111827;
+}
+
 @keyframes fadeIn {
 
     from {
@@ -212,6 +250,33 @@ body {
     color: transparent;
 
     -webkit-text-fill-color: transparent;
+}
+
+.register-link {
+
+    margin-top: 18px;
+
+    font-size: 14px;
+
+    text-align: center;
+
+    color: #9ca3af;
+}
+
+.register-link span {
+
+    color: #4f46e5;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    margin-left: 4px;
+}
+
+.register-link span:hover {
+
+    text-decoration: underline;
 }
 
 @media (max-width: 768px) {

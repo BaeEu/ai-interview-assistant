@@ -1,0 +1,39 @@
+<div class="register-page" [ngClass]="{ dark: themeService.darkMode}">
+    <div class="register-card">
+        <div class="theme-toggle">
+            <button (click)="themeService.toggleTheme()">
+                {{themeService.darkMode? '☀️ Light': '🌙 Dark'}}
+            </button>
+        </div>
+
+        <h1>Create Account</h1>
+
+        <p class="subtitle">
+            Register to start AI interview practice
+        </p>
+
+        <input type="text" [(ngModel)]="username" placeholder="Username">
+
+        <input type="password" [(ngModel)]="password" placeholder="Password">
+
+        <button class="register-btn" (click)="register()">
+            Register
+        </button>
+
+        <div *ngIf="error" class="error">
+            {{ error }}
+        </div>
+
+        <div class="login-link">
+
+            Already have an account?
+
+            <a routerLink="/login">
+                Login
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

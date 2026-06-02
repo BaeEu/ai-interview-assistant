@@ -1,0 +1,283 @@
+.sidebar {
+
+    width: 250px;
+
+    height: 100vh;
+
+    background: #111827;
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 12px;
+
+    transition: 0.3s ease;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* LIGHT MODE */
+
+.light-sidebar {
+
+    background: white;
+
+    color: #111827;
+
+    border-right: 1px solid #e5e7eb;
+}
+
+/* COLLAPSE */
+
+.collapsed {
+
+    width: 0;
+
+    overflow: hidden;
+
+    padding: 0;
+}
+
+/* TOP */
+
+.sidebar-top {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+/* NEW CHAT */
+
+.new-chat-btn {
+
+    width: 100%;
+
+    border: none;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.new-chat-btn:hover {
+
+    opacity: 0.9;
+}
+
+/* MENU */
+
+.menu-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.menu-list a {
+
+    padding: 10px 12px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    font-size: 13px;
+
+    transition: 0.2s ease;
+}
+
+.menu-list a:hover {
+
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.light-sidebar .menu-list a:hover {
+
+    background: #f3f4f6;
+}
+
+.menu-list a.active {
+
+    background: #2563eb;
+
+    color: white;
+}
+
+/* HISTORY TITLE */
+
+.history-title {
+
+    font-size: 12px;
+
+    opacity: 0.7;
+
+    margin-bottom: 10px;
+
+    padding-left: 4px;
+}
+
+/* SESSION */
+
+.session-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    overflow-y: auto;
+
+    scrollbar-width: none;
+}
+
+.session-list::-webkit-scrollbar {
+
+    display: none;
+}
+
+/* SESSION ITEM */
+
+.session-item {
+
+    padding: 10px 12px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.light-sidebar .session-item {
+
+    background: #f3f4f6;
+}
+
+.session-item:hover {
+
+    background: #2563eb;
+
+    color: white;
+}
+
+.delete-btn {
+
+    border: none;
+
+    background: transparent;
+
+    color: #9ca3af;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    opacity: 0;
+
+    transition: 0.2s;
+}
+
+.session-item:hover .delete-btn {
+
+    opacity: 1;
+}
+
+.delete-btn:hover {
+
+    color: #ef4444;
+}
+
+.edit-btn,
+.delete-btn {
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    padding: 4px;
+
+    border-radius: 6px;
+
+    transition: 0.2s;
+}
+
+.edit-btn:hover {
+
+    background: #2563eb;
+}
+
+.session-name {
+    flex: 1;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.action-buttons {
+
+    display: flex;
+
+    gap: 6px;
+}
+
+.light-sidebar .edit-btn,
+.light-sidebar .delete-btn {
+
+    color: #111827;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+
+        position: fixed;
+
+        left: 0;
+
+        top: 70px;
+
+        z-index: 1000;
+    }
+}

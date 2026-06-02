@@ -1,0 +1,27 @@
+
+.layout-container {
+
+    display: flex;
+
+    height: calc(100vh - 70px);
+
+    overflow: hidden;
+}
+
+.content {
+
+    flex: 1;
+
+    padding: 20px;
+
+    overflow-y: auto;
+
+    transition: 0.3s ease;
+
+    background: #0b1120;
+}
+
+.content.expanded {
+
+    margin-left: 0;
+}

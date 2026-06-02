@@ -1,0 +1,57 @@
+<div class="sidebar" [ngClass]="{'collapsed': collapsed,'light-sidebar': !themeService.darkMode}">
+
+    <!-- TOP -->
+
+    <div class="sidebar-top">
+
+        <button class="new-chat-btn" routerLink="/chat">
+            + New Chat
+        </button>
+
+        <div class="menu-list">
+
+            <a routerLink="/settings" routerLinkActive="active">
+
+                ⚙ Settings
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- HISTORY -->
+
+    <div class="history-title">
+
+        Recent Chats
+
+    </div>
+
+    <div class="session-list">
+
+        <div *ngFor="let session of sessions" class="session-item">
+            <div class="session-name" (click)="selectSession(session)">
+                {{ session.category }}
+            </div>
+            <div class="action-buttons">
+
+                <button class="edit-btn" (click)="editSession(session)">
+
+                    ✏️
+
+                </button>
+
+                <button class="delete-btn" (click)="deleteSession(session.session_id)">
+
+                    ✖
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

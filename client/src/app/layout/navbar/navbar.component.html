@@ -1,0 +1,31 @@
+<div class="navbar" [ngClass]="{ 'light-navbar': !themeService.darkMode }">
+
+    <div class="left-section">
+
+        <button class="menu-btn" (click)="toggleSidebarMenu()">
+            ☰
+        </button>
+
+        <h2 class="logo-title">
+            AI Interview Assistant
+        </h2>
+
+    </div>
+
+    <div class="nav-actions">
+
+        <button class="theme-btn" (click)="toggleTheme()">
+
+            {{ themeService.darkMode ? '🌙 Dark' : '☀ Light' }}
+
+        </button>
+
+        <button class="logout-btn" (click)="logout()">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</div>
