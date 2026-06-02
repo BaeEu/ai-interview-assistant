@@ -3,6 +3,5 @@
 // };
 
 export const environment = {
-  production: true,
   apiUrl: 'https://ai-interview-assistant-mxh2.onrender.com/api'
 };
