@@ -127,11 +127,13 @@ export const authController = {
                 }
             });
 
-        } catch (error) {
-            console.log(error);
+        } catch (error: any) {
+
+            console.error('LOGIN ERROR:', error);
+
             res.status(500).json({
                 success: false,
-                message: 'Server error'
+                message: error.message
             });
         }
     }

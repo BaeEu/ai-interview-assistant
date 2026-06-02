@@ -10,6 +10,13 @@ import categoryRoutes from './routes/category.routes';
 const app = express();
 
 app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:4200',
+    'https://ai-interview-assistant-app.netlify.app'
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 app.get("/", (req, res) => {
